@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USER/ironclad-site   # <-- change
+  repo: https://github.com/Sonu-Raj-Dev/ironclad-site.git   # <-- change
   branch: main
   # base_url: https://YOUR-AUTH-WORKER.workers.dev   # <-- your sveltia-cms-auth worker
 
