@@ -1,0 +1,8 @@
+---
+// Renders the client's uploaded photo, or the styled placeholder slot until
+// one exists. `src` comes straight from the CMS ("" when unset).
+const { src = '', alt = '', label = 'Photo', class: cls = '' } = Astro.props;
+---
+{src
+  ? <img src={src} alt={alt} class={cls} loading="lazy" decoding="async" />
+  : <div class={`u-photo ${cls}`} data-slot={label}></div>}

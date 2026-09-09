@@ -1,0 +1,70 @@
+{
+  "seoTitle": "Gym Services & Class Timetable | Ironclad, Baner Pune",
+  "seoDescription": "Strength floor, Metcon 45 conditioning, personal coaching, yoga and mobility, body composition clinic and corporate batches in Baner, Pune. Full class timetable.",
+  "headingLine1": "Pick a room,",
+  "headingLine2": "we'll pick",
+  "headingLine3": "the plan.",
+  "highlightWord": "plan",
+  "intro": "Everything here is included in a full membership except personal coaching and the nutrition clinic, which are booked separately.",
+  "services": [
+    {
+      "badge": "Included",
+      "title": "Power Up",
+      "meta": "Floor open 5:00 AM – 11:00 PM",
+      "body": "Six platforms, four competition racks, calibrated plates to 250 kg, a full dumbbell run and cable stations. A coach is on the floor every hour we're open — ask any of them to watch a set.",
+      "bestFor": "powerlifting · general strength · returning lifters"
+    },
+    {
+      "badge": "Included",
+      "title": "Metcon 45",
+      "meta": "45 min · 12 per class",
+      "body": "Mixed-modal conditioning — barbell, bike, rower, carries — capped at twelve so the coach sees every rep. Three scaling levels go on the board before you walk in.",
+      "bestFor": "fat loss · work capacity · sport off-season"
+    },
+    {
+      "badge": "Booked separately",
+      "title": "Personal Coaching",
+      "meta": "12-week blocks · 2–4 sessions/week",
+      "body": "One coach, one plan, twelve weeks at a time. Starts with a movement screen and a goal conversation, ends with a written review of what your numbers did. Shift workers and frequent travellers welcome.",
+      "bestFor": "first-timers · specific goals · post-injury"
+    },
+    {
+      "badge": "Included",
+      "title": "Be Flexible",
+      "meta": "900 sq ft studio · 9 classes/week",
+      "body": "Morning vinyasa, evening restorative, and a 75-minute mobility hour every Sunday that pairs with whatever you lifted that week. Mats, blocks and straps provided.",
+      "bestFor": "desk-bound backs · recovery days · beginners"
+    },
+    {
+      "badge": "Booked separately",
+      "title": "Body Comp Clinic",
+      "meta": "Monthly · 30 min per review",
+      "body": "Measurements, weight trend and a plan review with a registered dietitian, built around home-cooked meals rather than a supplement list. Vegetarian, Jain and eggetarian plans are standard, not special requests.",
+      "bestFor": "fat loss · muscle gain · maintenance"
+    },
+    {
+      "badge": "On request",
+      "title": "Corporate & Sport",
+      "meta": "Batches of 8–20",
+      "body": "Early-morning batches for offices in the Baner–Balewadi belt, and off-season strength blocks for local cricket, football and badminton clubs. Includes a team screen and a monthly report for the coach or HR lead.",
+      "bestFor": "office groups · club teams · school squads"
+    }
+  ],
+  "timetableHeading": "Class board",
+  "timetableIntro": "Open-floor training runs all day; the times below are coached classes. Sunday is mobility and open gym only.",
+  "timetable": [
+    { "time": "06:00", "mon": "Power Up", "tue": "Metcon 45", "wed": "Power Up", "thu": "Metcon 45", "fri": "Power Up", "sat": "Open Strength" },
+    { "time": "07:15", "mon": "Metcon 45", "tue": "Power Up", "wed": "Metcon 45", "thu": "Power Up", "fri": "Metcon 45", "sat": "Metcon 45" },
+    { "time": "08:30", "mon": "Vinyasa", "tue": "Vinyasa", "wed": "Vinyasa", "thu": "Vinyasa", "fri": "Vinyasa", "sat": "—" },
+    { "time": "17:30", "mon": "Power Up", "tue": "Metcon 45", "wed": "Power Up", "thu": "Metcon 45", "fri": "Power Up", "sat": "—" },
+    { "time": "19:00", "mon": "Metcon 45", "tue": "Power Up", "wed": "Metcon 45", "thu": "Power Up", "fri": "Metcon 45", "sat": "—" },
+    { "time": "20:15", "mon": "Mobility & Reset", "tue": "Restorative", "wed": "Mobility & Reset", "thu": "Restorative", "fri": "Mobility & Reset", "sat": "—" }
+  ],
+  "plansHeading": "Three ways in",
+  "plansIntro": "We don't sell online and we don't lock anyone into a year. Ask at the desk or send an enquiry for current rates — they're the same either way.",
+  "plans": [
+    { "title": "Day Pass", "body": "Full floor and any class running that day. The first one is free.", "note": "No sign-up needed", "featured": false },
+    { "title": "Monthly", "body": "Everything included, rolling month to month. Pause up to 30 days a year at no cost.", "note": "Most members choose this", "featured": true },
+    { "title": "Quarterly / Annual", "body": "The same access at a lower monthly rate, with a quarterly review and body-comp check built in.", "note": "Transferable once", "featured": false }
+  ]
+}

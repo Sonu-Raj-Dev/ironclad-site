@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import svc from '../content/services.json';
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const dayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+---
+<Base title={svc.seoTitle} description={svc.seoDescription}>
+
+  <div class="relative bg-void u-grain overflow-hidden">
+    <div class="halo" style="width:min(90vw,620px); top:30%" aria-hidden="true"></div>
+    <div class="u-wrap relative pt-14 pb-16 md:pt-20 md:pb-20">
+      <p class="u-label text-blood">Services</p>
+      <h1 class="font-display font-black uppercase mt-5 leading-[0.9] text-[2.75rem] sm:text-6xl lg:text-7xl">
+        {svc.headingLine1}<br />{svc.headingLine2}<br />
+        {svc.headingLine3.split(svc.highlightWord)[0]}<span class="text-blood">{svc.highlightWord}</span>{svc.headingLine3.split(svc.highlightWord)[1]}
+      </h1>
+      <p class="u-prose mt-7 text-ash md:text-lg">{svc.intro}</p>
+    </div>
+  </div>
+
+  <div class="bg-coal border-y border-edge">
+    <div class="u-wrap py-16 md:py-24 flex flex-col gap-px bg-edge border border-edge">
+      {svc.services.map((s) => (
+        <article class="bg-coal p-6 md:p-9 grid md:grid-cols-[1fr_1.6fr] gap-6 md:gap-10 rv">
+          <div>
+            <p class="u-label text-blood">{s.badge}</p>
+            <h2 class="font-display font-extrabold uppercase text-2xl md:text-3xl mt-3">{s.title}</h2>
+            <p class="font-mono text-xs text-ash mt-3">{s.meta}</p>
+          </div>
+          <div>
+            <p class="u-prose text-ash">{s.body}</p>
+            <p class="mt-4 font-mono text-xs uppercase tracking-wider text-ash/60">Best for · {s.bestFor}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="bg-void u-grain relative">
+    <div class="u-wrap py-16 md:py-24">
+      <p class="u-label text-blood rv">Weekly timetable</p>
+      <h2 class="font-display font-extrabold uppercase text-3xl md:text-5xl mt-4 rv">{svc.timetableHeading}</h2>
+      <p class="u-prose mt-4 text-ash rv">{svc.timetableIntro}</p>
+      <div class="mt-9 w-full overflow-x-auto border border-edge rv">
+        <table class="w-full text-left font-mono text-sm min-w-[720px]">
+          <caption class="sr-only">Weekly coached class timetable</caption>
+          <thead>
+            <tr class="u-label bg-blood text-bone">
+              <th scope="col" class="py-3 px-4 font-medium">Time</th>
+              {dayLabels.map((d) => <th scope="col" class="py-3 px-4 font-medium">{d}</th>)}
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-edge bg-coal">
+            {svc.timetable.map((row) => (
+              <tr>
+                <th scope="row" class="py-3 px-4 tnum text-blood text-left font-medium whitespace-nowrap">{row.time}</th>
+                {days.map((d) => (
+                  <td class={`py-3 px-4 ${row[d] === '—' ? 'text-ash/40' : ''}`}>{row[d]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-coal border-y border-edge">
+    <div class="u-wrap py-16 md:py-24">
+      <p class="u-label text-blood rv">Membership</p>
+      <h2 class="font-display font-extrabold uppercase text-3xl md:text-5xl mt-4 rv">{svc.plansHeading}</h2>
+      <p class="u-prose mt-4 text-ash rv">{svc.plansIntro}</p>
+      <div class="grid md:grid-cols-3 gap-5 mt-10 stage">
+        {svc.plans.map((p) => (
+          <div class={`tilt rv bg-void border p-7 ${p.featured ? 'border-blood' : 'border-edge'}`}>
+            <div class="tilt__pop">
+              <h3 class="font-display font-bold uppercase text-xl">{p.title}</h3>
+              <p class="mt-3 text-sm text-ash">{p.body}</p>
+              <p class={`font-mono text-xs uppercase tracking-wider mt-5 pt-4 border-t border-edge ${p.featured ? 'text-blood' : 'text-ash/60'}`}>{p.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <a href="/contact" class="inline-block u-label mt-10 bg-blood text-bone px-7 py-4 hover:bg-flare transition-colors rv">Ask about rates</a>
+    </div>
+  </div>
+</Base>

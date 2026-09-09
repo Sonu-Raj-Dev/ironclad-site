@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import contact from '../content/contact.json';
+import site from '../content/site.json';
+
+const telHref = 'tel:' + site.phone.replace(/\s/g, '');
+---
+<Base title={`Enquiry received | ${site.name}`} description="Your enquiry has reached us — a coach will reply within one working day.">
+  <div class="relative bg-void u-grain overflow-hidden">
+    <div class="halo" style="width:min(90vw,620px)" aria-hidden="true"></div>
+    <div class="u-wrap relative py-24 md:py-32 text-center">
+      <p class="u-label text-blood">Enquiry received</p>
+      <h1 class="font-display font-black uppercase mt-5 text-4xl md:text-6xl">{contact.successHeading}</h1>
+      <p class="u-prose mx-auto mt-6 text-ash md:text-lg">{contact.successBody}</p>
+      <div class="flex flex-wrap gap-3 justify-center mt-10">
+        <a href={telHref} class="u-label bg-blood text-bone px-7 py-4 hover:bg-flare transition-colors">Call {site.phone}</a>
+        <a href="/" class="u-label border border-edge px-7 py-4 hover:border-blood hover:text-blood transition-colors">Back to home</a>
+      </div>
+    </div>
+  </div>
+</Base>

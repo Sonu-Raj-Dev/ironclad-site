@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import contact from '../content/contact.json';
+import site from '../content/site.json';
+
+const telHref = 'tel:' + site.phone.replace(/\s/g, '');
+const waHref = 'tel:' + site.whatsapp.replace(/\s/g, '');
+---
+<Base title={contact.seoTitle} description={contact.seoDescription}>
+
+  <div class="relative bg-void u-grain overflow-hidden">
+    <div class="halo" style="width:min(90vw,620px); top:35%" aria-hidden="true"></div>
+    <div class="u-wrap relative pt-14 pb-16 md:pt-20 md:pb-20">
+      <p class="u-label text-blood">Contact us</p>
+      <h1 class="font-display font-black uppercase mt-5 leading-[0.9] text-[2.75rem] sm:text-6xl lg:text-7xl">
+        {contact.headingLine1}<br />
+        {contact.headingLine2.split(contact.highlightWord)[0]}<span class="text-blood">{contact.highlightWord}</span>{contact.headingLine2.split(contact.highlightWord)[1]}
+      </h1>
+      <p class="u-prose mt-7 text-ash md:text-lg">{contact.intro}</p>
+    </div>
+  </div>
+
+  <div class="bg-coal border-y border-edge">
+    <div class="u-wrap py-16 md:py-24 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-start">
+
+      <div class="bg-void border border-edge p-6 md:p-9 rv">
+        <h2 class="font-display font-extrabold uppercase text-2xl md:text-3xl">{contact.formHeading}</h2>
+        <p class="mt-2 text-sm text-ash">{contact.formNote}</p>
+
+        <!-- Plain HTML POST — no JavaScript needed, so it works everywhere.
+             Web3Forms redirects to /thank-you on success. -->
+        <form action={site.formEndpoint} method="POST" class="mt-8 grid sm:grid-cols-2 gap-5">
+          <input type="hidden" name="access_key" value={site.formAccessKey} />
+          <input type="hidden" name="subject" value={`New website enquiry — ${site.name}`} />
+          <input type="hidden" name="redirect" value={new URL('/thank-you', Astro.site).href} />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
+
+          <div class="flex flex-col gap-2">
+            <label for="f-name" class="u-label text-ash">Full name *</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name"
+                   class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="f-phone" class="u-label text-ash">Phone *</label>
+            <input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+91"
+                   class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood" />
+          </div>
+          <div class="flex flex-col gap-2 sm:col-span-2">
+            <label for="f-email" class="u-label text-ash">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email"
+                   class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="f-interest" class="u-label text-ash">I'm interested in *</label>
+            <select id="f-interest" name="interest" required
+                    class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood">
+              <option value="">Choose one</option>
+              {contact.interests.map((i) => <option value={i}>{i}</option>)}
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="f-time" class="u-label text-ash">Best time to reach you</label>
+            <select id="f-time" name="best_time"
+                    class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood">
+              <option>Morning (7 AM – 12 PM)</option>
+              <option>Afternoon (12 PM – 5 PM)</option>
+              <option>Evening (5 PM – 9 PM)</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2 sm:col-span-2">
+            <label for="f-msg" class="u-label text-ash">Anything we should know?</label>
+            <textarea id="f-msg" name="message" rows="4"
+                      placeholder="Training history, injuries, schedule constraints — whatever helps us answer properly."
+                      class="bg-coal border border-edge px-4 py-3 text-[0.95rem] focus:border-blood resize-y"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="u-label bg-blood text-bone px-8 py-4 hover:bg-flare transition-colors">Send enquiry</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="flex flex-col gap-8 rv">
+        <div>
+          <p class="u-label text-blood">Find us</p>
+          <address class="not-italic mt-3 text-lg leading-relaxed">
+            {site.name}<br />{site.addressLine1}<br />{site.addressLine2}<br />{site.addressRegion}
+          </address>
+          <p class="mt-3 text-sm text-ash">{site.directions}</p>
+        </div>
+
+        {site.mapEmbedUrl
+          ? <iframe src={site.mapEmbedUrl} title="Map to the gym" loading="lazy"
+                    class="w-full aspect-[4/3] border border-edge" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          : <Photo src="" label="Map embed — paste the Google Maps embed URL in the CMS" class="aspect-[4/3] w-full" />}
+
+        <div class="flex flex-col">
+          <p class="u-label text-blood mb-3">Reach us</p>
+          <a href={telHref} class="font-mono text-[0.95rem] py-2.5 border-b border-edge hover:text-blood transition-colors">{site.phone}</a>
+          <a href={waHref} class="font-mono text-[0.95rem] py-2.5 border-b border-edge hover:text-blood transition-colors">{site.whatsapp} · WhatsApp</a>
+          <a href={`mailto:${site.email}`} class="font-mono text-[0.95rem] py-2.5 border-b border-edge hover:text-blood transition-colors break-all">{site.email}</a>
+        </div>
+
+        <div>
+          <p class="u-label text-blood mb-3">Opening hours</p>
+          <table class="w-full font-mono text-sm">
+            <caption class="sr-only">Opening hours</caption>
+            <tbody class="divide-y divide-edge border-y border-edge">
+              {site.hours.map((h) => (
+                <tr>
+                  <th scope="row" class="py-2.5 text-left font-medium text-ash">{h.days}</th>
+                  <td class="py-2.5 text-right tnum">{h.time}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

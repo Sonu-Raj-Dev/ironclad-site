@@ -1,0 +1,265 @@
+---
+import '../styles/global.css';
+import site from '../content/site.json';
+
+const { title, description } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const telHref = 'tel:' + site.phone.replace(/\s/g, '');
+
+// Local SEO: this is the block Google reads for the map pack.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ExerciseGym',
+  name: site.name,
+  description: site.footerBlurb,
+  url: Astro.site?.href,
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.addressLine1,
+    addressLocality: 'Pune',
+    addressRegion: site.addressRegion,
+    postalCode: site.postalCode,
+    addressCountry: 'IN',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  openingHours: site.hours.map((h) => `${h.days} ${h.time}`),
+};
+---
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content={site.name} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0A0A0C" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline></script>
+</head>
+<body>
+
+<header class="sticky top-0 z-50 bg-void/85 backdrop-blur-md border-b border-edge">
+  <div class="u-wrap flex items-center justify-between h-16 md:h-[76px]">
+    <a href="/" class="flex items-center gap-3 shrink-0">
+      <span class="grid place-items-center w-9 h-9 bg-blood shrink-0">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="1" y="9" width="3" height="6" fill="#F2F2F0"/><rect x="5" y="6" width="3" height="12" fill="#F2F2F0"/>
+          <rect x="9" y="10.5" width="6" height="3" fill="#F2F2F0"/>
+          <rect x="16" y="6" width="3" height="12" fill="#F2F2F0"/><rect x="20" y="9" width="3" height="6" fill="#F2F2F0"/>
+        </svg>
+      </span>
+      <span class="font-display font-extrabold text-lg tracking-tight">{site.shortName}</span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-7">
+      {nav.map((n) => (
+        <a href={n.href} class="nav-link u-label text-ash hover:text-bone transition-colors"
+           aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>
+      ))}
+      <a href="/contact" class="u-label bg-blood text-bone px-5 py-3 hover:bg-flare transition-colors">Free trial</a>
+    </nav>
+
+    <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav"
+            class="md:hidden u-label flex items-center gap-2 border border-edge px-3 py-2">
+      <span id="menuLabel">Menu</span>
+      <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden="true"><rect width="14" height="2" fill="#E8232A"/><rect y="4" width="14" height="2" fill="#F2F2F0"/><rect y="8" width="14" height="2" fill="#F2F2F0"/></svg>
+    </button>
+  </div>
+
+  <div id="mobileNav" hidden class="md:hidden bg-coal border-t border-edge">
+    <nav aria-label="Primary mobile" class="u-wrap py-3 flex flex-col">
+      {nav.map((n) => <a href={n.href} class="u-label text-ash py-3">{n.label}</a>)}
+      <a href="/contact" class="u-label mt-2 bg-blood text-bone px-4 py-3 text-center">Book a free trial</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <slot />
+</main>
+
+<footer class="bg-void u-grain relative border-t border-edge">
+  <div class="u-wrap py-14 md:py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+    <div class="lg:col-span-2">
+      <div class="flex items-center gap-3">
+        <span class="grid place-items-center w-9 h-9 bg-blood shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="1" y="9" width="3" height="6" fill="#F2F2F0"/><rect x="5" y="6" width="3" height="12" fill="#F2F2F0"/>
+            <rect x="9" y="10.5" width="6" height="3" fill="#F2F2F0"/>
+            <rect x="16" y="6" width="3" height="12" fill="#F2F2F0"/><rect x="20" y="9" width="3" height="6" fill="#F2F2F0"/>
+          </svg>
+        </span>
+        <span class="font-display font-extrabold text-xl tracking-tight">{site.shortName}</span>
+      </div>
+      <p class="u-prose mt-4 text-sm text-ash">{site.footerBlurb}</p>
+    </div>
+    <div>
+      <p class="u-label text-ash/60">Pages</p>
+      <nav aria-label="Footer" class="flex flex-col gap-2 mt-4 text-sm">
+        {nav.map((n) => <a href={n.href} class="text-ash hover:text-blood transition-colors">{n.label}</a>)}
+      </nav>
+    </div>
+    <div>
+      <p class="u-label text-ash/60">Reach us</p>
+      <div class="flex flex-col gap-2 mt-4 text-sm font-mono">
+        <a href={telHref} class="text-ash hover:text-blood transition-colors">{site.phone}</a>
+        <a href={`mailto:${site.email}`} class="text-ash hover:text-blood transition-colors break-all">{site.email}</a>
+        <span class="text-ash/60">{site.hours[0].days} {site.hours[0].time}</span>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-edge">
+    <div class="u-wrap py-5 flex flex-wrap gap-x-6 gap-y-2 justify-between u-label text-ash/50">
+      <span>© {new Date().getFullYear()} {site.name}</span>
+      <span>{site.addressLine2}</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+
+  // mobile menu
+  var btn = document.getElementById('menuBtn');
+  var panel = document.getElementById('mobileNav');
+  var label = document.getElementById('menuLabel');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      label.textContent = open ? 'Close' : 'Menu';
+    });
+  }
+
+  // scroll reveal — only hide what starts below the fold
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.remove('rv-init'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) {
+      if (el.getBoundingClientRect().top > innerHeight * 0.92) { el.classList.add('rv-init'); io.observe(el); }
+    });
+
+    // count-up stats
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, to = parseInt(el.dataset.count, 10), t0 = performance.now();
+        (function step(now) {
+          var t = Math.min((now - t0) / 900, 1);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString('en-IN');
+          if (t < 1) requestAnimationFrame(step);
+        })(t0);
+        cio.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
+  }
+
+  // hero parallax
+  var hero = document.getElementById('hero');
+  if (hero && !reduce) {
+    var layers = hero.querySelectorAll('.layer'), px = 0, py = 0, sy = 0, raf = null;
+    function apply() {
+      raf = null;
+      layers.forEach(function (el) {
+        var d = parseFloat(el.dataset.depth || '0');
+        var x = px * d * 0.5, y = py * d * 0.5 + sy * d * 0.12;
+        el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotateY(' +
+          (px * d * 0.06).toFixed(2) + 'deg) rotateX(' + (-py * d * 0.06).toFixed(2) + 'deg)';
+      });
+    }
+    function queue() { if (!raf) raf = requestAnimationFrame(apply); }
+    if (fine) {
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        px = (e.clientX - r.left) / r.width * 2 - 1;
+        py = (e.clientY - r.top) / r.height * 2 - 1;
+        queue();
+      });
+      hero.addEventListener('pointerleave', function () { px = 0; py = 0; queue(); });
+    }
+    addEventListener('scroll', function () { sy = Math.min(scrollY, 700); queue(); }, { passive: true });
+  }
+
+  // 3D tilt cards
+  if (!reduce && fine) {
+    document.querySelectorAll('.tilt').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = 'transform .08s linear, border-color .3s, background-color .3s';
+        card.style.transform = 'rotateY(' + (x * 11).toFixed(2) + 'deg) rotateX(' + (-y * 11).toFixed(2) + 'deg) translateZ(14px)';
+      });
+      card.addEventListener('pointerleave', function () { card.style.transition = ''; card.style.transform = ''; });
+    });
+  }
+
+  // ember particles
+  var cv = document.getElementById('embers');
+  if (cv && !reduce) {
+    var ctx = cv.getContext('2d'), parts = [], w = 0, h = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    function spawn(any) {
+      return {
+        x: Math.random() * w, y: any ? Math.random() * h : h + 10,
+        r: Math.random() * 1.9 + 0.5, vy: -(Math.random() * 0.42 + 0.14),
+        vx: (Math.random() - 0.5) * 0.28, a: Math.random() * 0.55 + 0.2,
+        hue: Math.random() < 0.55 ? '255,120,45' : '232,45,40', ph: Math.random() * Math.PI * 2,
+      };
+    }
+    function resize() {
+      var r = cv.getBoundingClientRect();
+      w = r.width; h = r.height;
+      cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      parts = [];
+      var n = Math.round(Math.min(w * h / 12000, 90));
+      for (var i = 0; i < n; i++) parts.push(spawn(true));
+    }
+    function frame(t) {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        p.y += p.vy; p.x += p.vx + Math.sin(t / 900 + p.ph) * 0.16;
+        if (p.y < -12) { parts[i] = spawn(false); continue; }
+        var fade = Math.max(p.a * (0.35 + Math.sin(t / 700 + p.ph) * 0.32 + 0.32), 0);
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(' + p.hue + ',' + fade.toFixed(3) + ')';
+        ctx.shadowBlur = 9; ctx.shadowColor = 'rgba(' + p.hue + ',0.8)';
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.shadowBlur = 0;
+      requestAnimationFrame(frame);
+    }
+    resize(); addEventListener('resize', resize); requestAnimationFrame(frame);
+  }
+})();
+</script>
+</body>
+</html>

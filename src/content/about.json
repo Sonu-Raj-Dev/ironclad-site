@@ -1,0 +1,39 @@
+{
+  "seoTitle": "About Ironclad Athletic Club | Gym in Baner, Pune",
+  "seoDescription": "Nine years coaching strength and conditioning in Baner, Pune. Meet the coaches, see the 12,000 sq ft floor and how we programme every member.",
+  "headingLine1": "Nine years on",
+  "headingLine2": "the same floor.",
+  "highlightWord": "same",
+  "intro": "Ironclad started in 2016 with two racks in a Baner basement and eleven members. We still coach the way we did then — in person, on the floor, one correction at a time.",
+  "storyHeading": "We built the gym we couldn't find.",
+  "storyPhoto": "",
+  "story": [
+    "Sameer and Nikita were both coaching at commercial chains where the job was selling packages, not teaching people to lift. In 2016 they took a basement lease, moved in two racks and a set of bumper plates, and told the first eleven members there would be no contracts.",
+    "Nine years later the floor is 12,000 sq ft and the coaching team is nine strong. Roughly two in three new members still arrive because somebody already training here sent them.",
+    "What hasn't changed: a coach watches your first rep, your plan is written down, and nobody at the desk will ever chase you with an upgrade."
+  ],
+  "principlesHeading": "How we coach",
+  "principles": [
+    { "title": "Screen before you load", "body": "Week one is a movement screen. The result decides your starting programme — not your goal, and not your ego." },
+    { "title": "Write everything down", "body": "Every set, load and RPE goes into your logbook. Quarterly reviews compare the numbers instead of the mood." },
+    { "title": "Scale, never skip", "body": "Bad knee, night shift, first month back — the session gets rewritten on the spot. You still train, you just train differently." }
+  ],
+  "coachesHeading": "Who's on the floor",
+  "coaches": [
+    { "name": "Sameer Kulkarni", "role": "Head coach · co-founder", "bio": "Strength & conditioning, 14 years. Runs the powerlifting batch and every barbell intro class.", "photo": "" },
+    { "name": "Nikita Rane", "role": "Conditioning lead · co-founder", "bio": "Ex-national rower. Builds the Metcon programme and the return-to-sport blocks for local clubs.", "photo": "" },
+    { "name": "Aarti Deshmukh", "role": "Mobility & yoga", "bio": "Twelve years teaching vinyasa and restorative. Runs the Sunday mobility hour and all post-injury work.", "photo": "" }
+  ],
+  "facilityHeading": "What's actually in the room",
+  "facilityIntro": "Open floor throughout — no machine circuit, no queue system. Air-conditioned, matted, showers and lockers on both levels.",
+  "facility": [
+    { "item": "Lifting platforms", "value": "6" },
+    { "item": "Competition racks", "value": "4" },
+    { "item": "Calibrated plates to", "value": "250 kg" },
+    { "item": "Dumbbells", "value": "2–60 kg" },
+    { "item": "Assault bikes / rowers", "value": "4 / 4" },
+    { "item": "Turf sprint lane", "value": "22 m" },
+    { "item": "Studio", "value": "900 sq ft" },
+    { "item": "Two-wheeler parking", "value": "40" }
+  ]
+}

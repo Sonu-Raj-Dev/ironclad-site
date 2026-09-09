@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import home from '../content/home.json';
+import site from '../content/site.json';
+
+const h = home.hero;
+const marquee = home.marquee;
+---
+<Base title={home.seoTitle} description={home.seoDescription}>
+
+  <!-- HERO -->
+  <div id="hero" class="relative overflow-hidden bg-void u-grain stage">
+    <canvas id="embers" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+
+    <div class="u-wrap relative pt-14 pb-16 md:pt-20 md:pb-24">
+      <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-6 items-center">
+
+        <div class="layer relative z-20" data-depth="26">
+          <p class="u-label text-blood">{h.eyebrow}</p>
+          <h1 class="font-display font-black uppercase mt-5 leading-[0.86] text-[3.25rem] sm:text-7xl lg:text-[5.25rem]">
+            {h.headingLine1}<br />
+            {h.headingLine2.split(h.highlightWord)[0]}<span class="text-blood">{h.highlightWord}</span><br />
+            {h.headingLine3}
+          </h1>
+          <p class="u-prose mt-7 text-ash text-base md:text-lg">{h.intro}</p>
+          <div class="flex flex-wrap gap-3 mt-9">
+            <a href="/contact" class="u-label bg-blood text-bone px-7 py-4 hover:bg-flare transition-colors">{h.primaryCta}</a>
+            <a href="/services" class="u-label border border-edge px-7 py-4 hover:border-blood hover:text-blood transition-colors">{h.secondaryCta}</a>
+          </div>
+        </div>
+
+        <div class="relative min-h-[380px] sm:min-h-[460px] lg:min-h-[540px] flex items-center justify-center">
+          <div class="halo layer" data-depth="-14" aria-hidden="true"></div>
+          <svg class="ring ring--spin layer" data-depth="-22" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="94" stroke-dasharray="2 7"></circle>
+          </svg>
+          <svg class="ring ring--spin-r layer" data-depth="-30" viewBox="0 0 200 200" aria-hidden="true" style="width:min(56vw,360px)">
+            <circle cx="100" cy="100" r="80" stroke-dasharray="30 14" stroke-width="0.7"></circle>
+          </svg>
+          <Photo src={h.photo} alt={`Training at ${site.name}`}
+                 label="Cut-out photo — hero athlete (PNG, no background)"
+                 class="layer relative z-10 w-[68%] max-w-[300px] aspect-[3/4] object-cover" />
+        </div>
+      </div>
+    </div>
+
+    <div class="relative border-y border-edge bg-coal py-3 overflow-hidden">
+      <div class="marquee u-label text-ash" aria-hidden="true">
+        {[0, 1].map(() => (
+          <span class="flex shrink-0">
+            {marquee.map((m) => (
+              <><span class="px-6">{m}</span><span class="px-6 text-blood">◆</span></>
+            ))}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMMES -->
+  <div class="bg-void relative u-grain">
+    <div class="u-wrap py-16 md:py-24">
+      <div class="text-center rv">
+        <p class="u-label text-blood">What you'll train</p>
+        <h2 class="font-display font-extrabold uppercase text-3xl md:text-5xl mt-4">{home.programmesHeading}</h2>
+        <p class="u-prose mx-auto mt-5 text-ash">{home.programmesIntro}</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6 mt-12 stage">
+        {home.programmes.map((p, i) => (
+          <article class="tilt rv bg-coal border border-edge p-7 md:p-8">
+            <div class="tilt__pop">
+              <div class="relative h-40 grid place-items-center mb-7">
+                <div class="halo" style="width:180px" aria-hidden="true"></div>
+                <Photo src={p.photo} alt={p.title} label=""
+                       class="relative z-10 w-24 h-36 object-cover" />
+              </div>
+              <p class="font-mono text-blood text-sm tnum">{String(i + 1).padStart(2, '0')}.</p>
+              <div class="h-px bg-edge my-3"></div>
+              <h3 class="font-display font-bold uppercase text-xl">{p.title}</h3>
+              <p class="mt-3 text-sm text-ash">{p.body}</p>
+              <p class="u-label text-ash/60 mt-5">{p.meta}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="bg-coal border-y border-edge">
+    <div class="u-wrap grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-edge">
+      {home.stats.map((s) => (
+        <div class="p-6 md:p-8 rv">
+          <p class="font-display font-black text-3xl md:text-5xl text-blood tnum" data-count={s.countTo || undefined}>{s.value}</p>
+          <p class="u-label text-ash mt-2">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="bg-void u-grain relative">
+    <div class="u-wrap py-16 md:py-24">
+      <div class="text-center rv">
+        <p class="u-label text-blood">Included with every membership</p>
+        <h2 class="font-display font-extrabold uppercase text-3xl md:text-5xl mt-4">{home.benefitsHeading}</h2>
+        <p class="u-prose mx-auto mt-5 text-ash">{home.benefitsIntro}</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+        {home.benefits.map((b) => (
+          <div class="rv bg-coal border border-edge p-6 hover:border-blood/50 transition-colors">
+            <p class="font-mono text-blood text-xs">{b.tag}</p>
+            <h3 class="font-display font-bold uppercase mt-3">{b.title}</h3>
+            <p class="mt-2 text-sm text-ash">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY -->
+  <div class="relative bg-coal border-y border-edge overflow-hidden">
+    <div class="halo" style="width:min(90vw,700px); opacity:.5" aria-hidden="true"></div>
+    <div class="u-wrap relative py-16 md:py-24 grid lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
+      <div class="rv">
+        <p class="u-label text-blood">On the board today</p>
+        <h2 class="font-display font-extrabold uppercase text-3xl md:text-5xl mt-4 leading-[1.02]">{home.todayHeading}</h2>
+        <p class="u-prose mt-5 text-ash">{home.todayBody}</p>
+        <a href="/contact" class="inline-block u-label mt-8 bg-blood text-bone px-7 py-4 hover:bg-flare transition-colors">Reserve a spot</a>
+      </div>
+      <div class="rv w-full overflow-x-auto border border-edge bg-void">
+        <table class="w-full text-left font-mono text-sm min-w-[380px]">
+          <caption class="sr-only">Today's class schedule</caption>
+          <thead>
+            <tr class="u-label bg-blood text-bone">
+              <th scope="col" class="py-3 px-4 font-medium">Time</th>
+              <th scope="col" class="py-3 px-4 font-medium">Class</th>
+              <th scope="col" class="py-3 px-4 font-medium">Coach</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-edge">
+            {home.today.map((r) => (
+              <tr>
+                <td class="py-3 px-4 tnum whitespace-nowrap text-blood">{r.time}</td>
+                <td class="py-3 px-4">{r.class}</td>
+                <td class="py-3 px-4 text-ash">{r.coach}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</Base>

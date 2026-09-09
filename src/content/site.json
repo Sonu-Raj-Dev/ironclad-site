@@ -1,0 +1,23 @@
+{
+  "name": "Ironclad Athletic Club",
+  "shortName": "IRONCLAD",
+  "tagline": "Strength & conditioning, Baner Pune",
+  "footerBlurb": "Strength and conditioning coaching in Baner, Pune since 2016. No contracts, no sales calls, a coach on the floor every hour we're open.",
+  "phone": "020 1234 5678",
+  "whatsapp": "+91 98765 43210",
+  "email": "train@ironcladpune.example",
+  "addressLine1": "Survey No. 14, Baner Road",
+  "addressLine2": "Baner, Pune 411045",
+  "addressRegion": "Maharashtra",
+  "postalCode": "411045",
+  "directions": "Second building past the Baner Road–Pashan Link junction. Two-wheeler parking behind, four-wheeler on the street after 9 AM.",
+  "mapEmbedUrl": "",
+  "formEndpoint": "https://api.web3forms.com/submit",
+  "formAccessKey": "PASTE-YOUR-WEB3FORMS-KEY",
+  "hours": [
+    { "days": "Mon – Fri", "time": "5:00 AM – 11:00 PM" },
+    { "days": "Saturday", "time": "6:00 AM – 9:00 PM" },
+    { "days": "Sunday", "time": "7:00 AM – 1:00 PM" }
+  ],
+  "geo": { "lat": "18.5590", "lng": "73.7868" }
+}

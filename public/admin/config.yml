@@ -1,0 +1,223 @@
+# ── What the client can edit. Every label here is what he sees on screen,
+# ── so keep them in his words. Anything not listed cannot be changed by him.
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USER/ironclad-site   # <-- change
+  branch: main
+  # base_url: https://YOUR-AUTH-WORKER.workers.dev   # <-- your sveltia-cms-auth worker
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Keep uploads sane — a 6 MB phone photo will slow the site down.
+media_library:
+  config:
+    max_file_size: 2500000
+
+collections:
+  # ─────────────────────────── Contact details ───────────────────────────
+  - name: site
+    label: "Gym details"
+    files:
+      - name: details
+        label: "Name, phone, address, hours"
+        file: "src/content/site.json"
+        fields:
+          - { name: name, label: "Full gym name", widget: string }
+          - { name: shortName, label: "Short name (used in the logo)", widget: string }
+          - { name: tagline, label: "Tagline", widget: string }
+          - { name: footerBlurb, label: "Short paragraph in the footer", widget: text }
+          - { name: phone, label: "Phone number", widget: string }
+          - { name: whatsapp, label: "WhatsApp number", widget: string }
+          - { name: email, label: "Email address", widget: string }
+          - { name: addressLine1, label: "Address line 1", widget: string }
+          - { name: addressLine2, label: "Address line 2 (area, city, PIN)", widget: string }
+          - { name: addressRegion, label: "State", widget: string }
+          - { name: postalCode, label: "PIN code", widget: string }
+          - { name: directions, label: "How to find us / parking", widget: text }
+          - { name: mapEmbedUrl, label: "Google Maps embed link", widget: string, required: false, hint: "Google Maps → Share → Embed a map → copy the src link only" }
+          - { name: formEndpoint, label: "Form service URL", widget: hidden }
+          - { name: formAccessKey, label: "Form access key", widget: string, hint: "From web3forms.com — leave alone unless it changes" }
+          - name: hours
+            label: "Opening hours"
+            widget: list
+            fields:
+              - { name: days, label: "Days", widget: string }
+              - { name: time, label: "Times", widget: string }
+          - name: geo
+            label: "Map coordinates"
+            widget: object
+            fields:
+              - { name: lat, label: "Latitude", widget: string }
+              - { name: lng, label: "Longitude", widget: string }
+
+  # ─────────────────────────────── Home page ──────────────────────────────
+  - name: home
+    label: "Home page"
+    files:
+      - name: home
+        label: "Home page content"
+        file: "src/content/home.json"
+        fields:
+          - { name: seoTitle, label: "Google title", widget: string, hint: "Keep under 60 characters" }
+          - { name: seoDescription, label: "Google description", widget: text, hint: "Keep under 155 characters" }
+          - name: hero
+            label: "Top section"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Small line above the heading", widget: string }
+              - { name: headingLine1, label: "Heading line 1", widget: string }
+              - { name: headingLine2, label: "Heading line 2", widget: string }
+              - { name: headingLine3, label: "Heading line 3", widget: string }
+              - { name: highlightWord, label: "Word to show in red", widget: string, hint: "Must appear in heading line 2" }
+              - { name: intro, label: "Intro paragraph", widget: text }
+              - { name: photo, label: "Hero photo (background removed)", widget: image, required: false }
+              - { name: primaryCta, label: "Red button text", widget: string }
+              - { name: secondaryCta, label: "Outline button text", widget: string }
+          - { name: marquee, label: "Scrolling word strip", widget: list, field: { name: word, label: "Word", widget: string } }
+          - { name: programmesHeading, label: "Programmes — heading", widget: string }
+          - { name: programmesIntro, label: "Programmes — intro", widget: text }
+          - name: programmes
+            label: "Programmes"
+            widget: list
+            fields:
+              - { name: title, label: "Name", widget: string }
+              - { name: body, label: "Description", widget: text }
+              - { name: meta, label: "Small line at the bottom", widget: string }
+              - { name: photo, label: "Photo", widget: image, required: false }
+          - name: stats
+            label: "Numbers band"
+            widget: list
+            fields:
+              - { name: value, label: "Number as shown", widget: string }
+              - { name: label, label: "What it means", widget: string }
+              - { name: countTo, label: "Count up to (digits only, blank = no animation)", widget: string, required: false }
+          - { name: benefitsHeading, label: "Benefits — heading", widget: string }
+          - { name: benefitsIntro, label: "Benefits — intro", widget: text }
+          - name: benefits
+            label: "Benefits"
+            widget: list
+            fields:
+              - { name: tag, label: "Small red tag", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Description", widget: text }
+          - { name: todayHeading, label: "Today's classes — heading", widget: string }
+          - { name: todayBody, label: "Today's classes — paragraph", widget: text }
+          - name: today
+            label: "Today's classes"
+            widget: list
+            fields:
+              - { name: time, label: "Time", widget: string }
+              - { name: class, label: "Class", widget: string }
+              - { name: coach, label: "Coach", widget: string }
+
+  # ─────────────────────────────── About page ─────────────────────────────
+  - name: about
+    label: "About page"
+    files:
+      - name: about
+        label: "About page content"
+        file: "src/content/about.json"
+        fields:
+          - { name: seoTitle, label: "Google title", widget: string }
+          - { name: seoDescription, label: "Google description", widget: text }
+          - { name: headingLine1, label: "Heading line 1", widget: string }
+          - { name: headingLine2, label: "Heading line 2", widget: string }
+          - { name: highlightWord, label: "Word to show in red", widget: string, hint: "Must appear in heading line 2" }
+          - { name: intro, label: "Intro paragraph", widget: text }
+          - { name: storyHeading, label: "Story heading", widget: string }
+          - { name: storyPhoto, label: "Story photo", widget: image, required: false }
+          - { name: story, label: "Story paragraphs", widget: list, field: { name: para, label: "Paragraph", widget: text } }
+          - { name: principlesHeading, label: "How we coach — heading", widget: string }
+          - name: principles
+            label: "How we coach"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Description", widget: text }
+          - { name: coachesHeading, label: "Coaches — heading", widget: string }
+          - name: coaches
+            label: "Coaches"
+            widget: list
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: role, label: "Role at the gym", widget: string }
+              - { name: bio, label: "Short bio", widget: text }
+              - { name: photo, label: "Portrait photo", widget: image, required: false }
+          - { name: facilityHeading, label: "Facility — heading", widget: string }
+          - { name: facilityIntro, label: "Facility — intro", widget: text }
+          - name: facility
+            label: "Equipment list"
+            widget: list
+            fields:
+              - { name: item, label: "Item", widget: string }
+              - { name: value, label: "Number / size", widget: string }
+
+  # ───────────────────────────── Services page ───────────────────────────
+  - name: services
+    label: "Services page"
+    files:
+      - name: services
+        label: "Services, timetable & membership"
+        file: "src/content/services.json"
+        fields:
+          - { name: seoTitle, label: "Google title", widget: string }
+          - { name: seoDescription, label: "Google description", widget: text }
+          - { name: headingLine1, label: "Heading line 1", widget: string }
+          - { name: headingLine2, label: "Heading line 2", widget: string }
+          - { name: headingLine3, label: "Heading line 3", widget: string }
+          - { name: highlightWord, label: "Word to show in red", widget: string, hint: "Must appear in heading line 3" }
+          - { name: intro, label: "Intro paragraph", widget: text }
+          - name: services
+            label: "Services"
+            widget: list
+            fields:
+              - { name: badge, label: "Small red label", widget: string }
+              - { name: title, label: "Service name", widget: string }
+              - { name: meta, label: "Timing / capacity line", widget: string }
+              - { name: body, label: "Description", widget: text }
+              - { name: bestFor, label: "Best for (separate with ·)", widget: string }
+          - { name: timetableHeading, label: "Timetable — heading", widget: string }
+          - { name: timetableIntro, label: "Timetable — intro", widget: text }
+          - name: timetable
+            label: "Weekly timetable"
+            widget: list
+            fields:
+              - { name: time, label: "Time", widget: string }
+              - { name: mon, label: "Mon", widget: string }
+              - { name: tue, label: "Tue", widget: string }
+              - { name: wed, label: "Wed", widget: string }
+              - { name: thu, label: "Thu", widget: string }
+              - { name: fri, label: "Fri", widget: string }
+              - { name: sat, label: "Sat", widget: string, hint: "Use — for no class" }
+          - { name: plansHeading, label: "Membership — heading", widget: string }
+          - { name: plansIntro, label: "Membership — intro", widget: text }
+          - name: plans
+            label: "Membership options"
+            widget: list
+            fields:
+              - { name: title, label: "Name", widget: string }
+              - { name: body, label: "What's included", widget: text }
+              - { name: note, label: "Small line at the bottom", widget: string }
+              - { name: featured, label: "Highlight this one in red", widget: boolean, default: false }
+
+  # ───────────────────────────── Contact page ────────────────────────────
+  - name: contact
+    label: "Contact page"
+    files:
+      - name: contact
+        label: "Contact page & enquiry form"
+        file: "src/content/contact.json"
+        fields:
+          - { name: seoTitle, label: "Google title", widget: string }
+          - { name: seoDescription, label: "Google description", widget: text }
+          - { name: headingLine1, label: "Heading line 1", widget: string }
+          - { name: headingLine2, label: "Heading line 2", widget: string }
+          - { name: highlightWord, label: "Word to show in red", widget: string, hint: "Must appear in heading line 2" }
+          - { name: intro, label: "Intro paragraph", widget: text }
+          - { name: formHeading, label: "Form heading", widget: string }
+          - { name: formNote, label: "Note under the form heading", widget: text }
+          - { name: interests, label: "\"I'm interested in\" options", widget: list, field: { name: option, label: "Option", widget: string } }
+          - { name: successHeading, label: "Thank-you page heading", widget: string }
+          - { name: successBody, label: "Thank-you page paragraph", widget: text }
