@@ -11,7 +11,7 @@
   "addressRegion": "Maharashtra",
   "postalCode": "411045",
   "directions": "Second building past the Baner Road–Pashan Link junction. Two-wheeler parking behind, four-wheeler on the street after 9 AM.",
-  "mapEmbedUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52320.22820969031!2d72.78171159037382!3d19.188897091320715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7572e94e1f5%3A0xa7feaa22265572c0!2sLion's%20gym!5e0!3m2!1sen!2sin!4v1788958749755!5m2!1sen!2sin\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52320.22820969031!2d72.78171159037382!3d19.188897091320715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7572e94e1f5%3A0xa7feaa22265572c0!2sLion's%20gym!5e0!3m2!1sen!2sin!4v1788958749755!5m2!1sen!2sin",
   "formEndpoint": "https://api.web3forms.com/submit",
   "formAccessKey": "PASTE-YOUR-WEB3FORMS-KEY",
   "hours": [
