@@ -11,13 +11,25 @@
   "addressRegion": "Maharashtra",
   "postalCode": "411045",
   "directions": "Second building past the Baner Road–Pashan Link junction. Two-wheeler parking behind, four-wheeler on the street after 9 AM.",
-  "mapEmbedUrl": "",
+  "mapEmbedUrl": "https://www.google.com/maps?sca_esv=764968ad403c3aa0&rlz=1C1JJTC_enIN1136IN1136&output=search&q=lions+gym&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832XcEhxLsSYpdGF9xgoCyv7SkNPbhZJVyoRmzH4regLQVDwcSX8Gs692QXT_Kr9YsCNddXNmnuxgLm60AlEQw4QpAk5oF6qvSj76bNrw1gJVaMtE6X0ZXcend9P8Y5Hw9oiMEdfGeFZbcEcDT50wDrUkKQA-EK9rb9Lb_Cf_DpcJmEr7fjw&entry=mc&ved=1t:200715&ictx=111",
   "formEndpoint": "https://api.web3forms.com/submit",
   "formAccessKey": "PASTE-YOUR-WEB3FORMS-KEY",
   "hours": [
-    { "days": "Mon – Fri", "time": "5:00 AM – 11:00 PM" },
-    { "days": "Saturday", "time": "6:00 AM – 9:00 PM" },
-    { "days": "Sunday", "time": "7:00 AM – 1:00 PM" }
+    {
+      "days": "Mon – Fri",
+      "time": "5:00 AM – 11:00 PM"
+    },
+    {
+      "days": "Saturday",
+      "time": "6:00 AM – 9:00 PM"
+    },
+    {
+      "days": "Sunday",
+      "time": "7:00 AM – 1:00 PM"
+    }
   ],
-  "geo": { "lat": "18.5590", "lng": "73.7868" }
+  "geo": {
+    "lat": "18.5590",
+    "lng": "73.7868"
+  }
 }
