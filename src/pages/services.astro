@@ -46,7 +46,7 @@ const dayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         <table class="w-full text-left font-mono text-sm min-w-[720px]">
           <caption class="sr-only">Weekly coached class timetable</caption>
           <thead>
-            <tr class="u-label bg-blood text-bone">
+            <tr class="u-label bg-blood text-onred">
               <th scope="col" class="py-3 px-4 font-medium">Time</th>
               {dayLabels.map((d) => <th scope="col" class="py-3 px-4 font-medium">{d}</th>)}
             </tr>
@@ -82,7 +82,7 @@ const dayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
           </div>
         ))}
       </div>
-      <a href="/contact" class="inline-block u-label mt-10 bg-blood text-bone px-7 py-4 hover:bg-flare transition-colors rv">Ask about rates</a>
+      <a href="/contact" class="inline-block u-label mt-10 bg-blood text-onred px-7 py-4 hover:bg-flare transition-colors rv">Ask about rates</a>
     </div>
   </div>
 </Base>

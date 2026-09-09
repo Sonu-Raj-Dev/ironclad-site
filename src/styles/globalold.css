@@ -10,8 +10,6 @@
   --color-flare:  #FF3B33;
   --color-bone:   #F2F2F0;
   --color-ash:    #8B8B93;
-  /* Text sitting on a red fill. Stays near-white in BOTH themes. */
-  --color-onred:  #FBF9F6;
 
   --font-display: Poppins, system-ui, sans-serif;
   --font-sans: Barlow, system-ui, -apple-system, sans-serif;
@@ -19,47 +17,6 @@
 }
 
 :root { color-scheme: dark; }
-
-/* ─────────────────────────── LIGHT THEME ───────────────────────────
-   Same token NAMES, swapped values — so no markup changes anywhere.
-   Read the names by role, not by their dark-mode flavour:
-   void = page ground, coal = section band, carbon = raised card,
-   edge = hairline, bone = body text, ash = muted text.            */
-:root[data-theme="light"] {
-  color-scheme: light;
-
-  --color-void:   #F7F4EF;  /* warm paper */
-  --color-coal:   #EFEAE1;  /* alternating band */
-  --color-carbon: #E6E0D4;  /* raised card / hover */
-  --color-edge:   #D5CDBE;  /* hairlines */
-  --color-blood:  #C0201F;  /* red dialled back — 5.5:1 on the paper ground */
-  --color-flare:  #9E1917;  /* hover */
-  --color-bone:   #211F1B;  /* charcoal text */
-  --color-ash:    #666056;  /* muted text — 5.1:1 */
-}
-
-/* Decorative bits that hardcode light-on-dark, flipped for the light theme. */
-:root[data-theme="light"] .u-grain::before {
-  background-image: radial-gradient(rgba(0,0,0,.055) 1px, transparent 1px);
-  opacity: .6;
-}
-:root[data-theme="light"] .halo {
-  background: radial-gradient(circle, rgba(192,32,31,.20) 0%, rgba(192,32,31,.07) 45%, transparent 70%);
-}
-:root[data-theme="light"] .ring circle { stroke: rgba(192,32,31,.35); }
-:root[data-theme="light"] .u-photo {
-  background-color: #E3DCCE;
-  background-image:
-    repeating-linear-gradient(118deg, rgba(0,0,0,.035) 0 2px, transparent 2px 12px),
-    radial-gradient(110% 80% at 50% 0%, #EFE9DD 0%, #E3DCCE 55%, #D6CDBB 100%);
-}
-:root[data-theme="light"] .u-photo::after { color: rgba(33,31,27,.5); }
-/* Embers are drawn in orange on canvas — they read as smudges on paper. */
-:root[data-theme="light"] #embers { display: none; }
-
-.theme-btn__sun, .theme-btn__moon { display: none; }
-:root[data-theme="light"] .theme-btn__moon { display: block; }
-:root:not([data-theme="light"]) .theme-btn__sun { display: block; }
 
 body {
   background: var(--color-void);
