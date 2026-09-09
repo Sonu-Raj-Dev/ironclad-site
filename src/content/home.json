@@ -8,11 +8,18 @@
     "headingLine3": "workouts",
     "highlightWord": "wild",
     "intro": "12,000 sq ft of open floor, nine coaches, and a class board that runs from 6 AM to 9 PM. No contracts at the door. Take a session first, decide after.",
-    "photo": "",
+    "photo": "/uploads/images.jpg",
     "primaryCta": "Book a free trial",
     "secondaryCta": "See the programmes"
   },
-  "marquee": ["Strength", "Conditioning", "Mobility", "Personal coaching", "Body composition", "Team blocks"],
+  "marquee": [
+    "Strength",
+    "Conditioning",
+    "Mobility",
+    "Personal coaching",
+    "Body composition",
+    "Team blocks"
+  ],
   "programmesHeading": "Wild programmes",
   "programmesIntro": "Three tracks run every week. Members move between them freely — most people do two strength days and two conditioning days.",
   "programmes": [
@@ -20,43 +27,99 @@
       "title": "Power Up",
       "body": "Squat, hinge, press, pull — coached on the barbell from your first session. Six platforms, four competition racks, calibrated plates to 250 kg.",
       "meta": "4 sessions weekly · all levels",
-      "photo": ""
+      "photo": "/uploads/images (1).jpg"
     },
     {
       "title": "Be Flexible",
       "body": "Morning vinyasa, evening restorative, and a 75-minute mobility hour on Sundays that pairs with whatever you lifted that week.",
       "meta": "9 classes weekly · 900 sq ft studio",
-      "photo": ""
+      "photo": "/uploads/images (1).jpg"
     },
     {
       "title": "Metcon 45",
       "body": "Forty-five minutes of mixed-modal work — bike, rower, barbell, carries — capped at twelve so the coach sees every rep. Three scaling levels on the board.",
       "meta": "10 classes weekly · 12 per class",
-      "photo": ""
+      "photo": "/uploads/images (1).jpg"
     }
   ],
   "stats": [
-    { "value": "12,000", "label": "Sq ft of floor", "countTo": "12000" },
-    { "value": "42", "label": "Classes a week", "countTo": "42" },
-    { "value": "9", "label": "Certified coaches", "countTo": "9" },
-    { "value": "1:6", "label": "Class coach ratio", "countTo": "" }
+    {
+      "value": "12,000",
+      "label": "Sq ft of floor",
+      "countTo": "12000"
+    },
+    {
+      "value": "42",
+      "label": "Classes a week",
+      "countTo": "42"
+    },
+    {
+      "value": "9",
+      "label": "Certified coaches",
+      "countTo": "9"
+    },
+    {
+      "value": "1:6",
+      "label": "Class coach ratio",
+      "countTo": ""
+    }
   ],
   "benefitsHeading": "Extra benefits",
   "benefitsIntro": "Things other gyms in Baner charge extra for. They come with the floor, from day one.",
   "benefits": [
-    { "tag": "WEEK 01", "title": "Movement screen", "body": "Overhead reach, hinge, squat depth, single-leg balance — the result writes your starting programme." },
-    { "tag": "EVERY SET", "title": "Written logbook", "body": "Loads, reps and RPE recorded each session, so progress is a number on a page rather than a feeling." },
-    { "tag": "QUARTERLY", "title": "Coach review", "body": "Thirty minutes with your coach comparing the last twelve weeks and rewriting the next twelve." },
-    { "tag": "ANY DAY", "title": "Bring a friend", "body": "One guest pass a month, no notice needed. They train the same class as you, free." }
+    {
+      "tag": "WEEK 01",
+      "title": "Movement screen",
+      "body": "Overhead reach, hinge, squat depth, single-leg balance — the result writes your starting programme."
+    },
+    {
+      "tag": "EVERY SET",
+      "title": "Written logbook",
+      "body": "Loads, reps and RPE recorded each session, so progress is a number on a page rather than a feeling."
+    },
+    {
+      "tag": "QUARTERLY",
+      "title": "Coach review",
+      "body": "Thirty minutes with your coach comparing the last twelve weeks and rewriting the next twelve."
+    },
+    {
+      "tag": "ANY DAY",
+      "title": "Bring a friend",
+      "body": "One guest pass a month, no notice needed. They train the same class as you, free."
+    }
   ],
   "todayHeading": "Drop in on any class, free, once.",
   "todayBody": "Turn up ten minutes early with indoor shoes and a bottle. We'll put you with a coach and start you wherever you are today.",
   "today": [
-    { "time": "06:00", "class": "Power Up", "coach": "Rehan" },
-    { "time": "07:15", "class": "Metcon 45", "coach": "Nikita" },
-    { "time": "08:30", "class": "Morning Vinyasa", "coach": "Aarti" },
-    { "time": "17:30", "class": "Power Up", "coach": "Sameer" },
-    { "time": "19:00", "class": "Metcon 45", "coach": "Nikita" },
-    { "time": "20:15", "class": "Mobility & Reset", "coach": "Aarti" }
+    {
+      "time": "06:00",
+      "class": "Power Up",
+      "coach": "Rehan"
+    },
+    {
+      "time": "07:15",
+      "class": "Metcon 45",
+      "coach": "Nikita"
+    },
+    {
+      "time": "08:30",
+      "class": "Morning Vinyasa",
+      "coach": "Aarti"
+    },
+    {
+      "time": "17:30",
+      "class": "Power Up",
+      "coach": "Sameer"
+    },
+    {
+      "time": "19:00",
+      "class": "Metcon 45",
+      "coach": "Nikita"
+    },
+    {
+      "time": "20:15",
+      "class": "Mobility & Reset",
+      "coach": "Aarti"
+    }
   ]
 }
