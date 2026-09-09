@@ -3,9 +3,9 @@
 
 backend:
   name: github
-  repo: https://github.com/Sonu-Raj-Dev/ironclad-site.git   # <-- change
+  repo: Sonu-Raj-Dev/ironclad-site   # <-- change
   branch: main
-  # base_url: https://YOUR-AUTH-WORKER.workers.dev   # <-- your sveltia-cms-auth worker
+  base_url: https://sveltia-cms-auth.sonu296702.workers.dev   # <-- your sveltia-cms-auth worker
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
